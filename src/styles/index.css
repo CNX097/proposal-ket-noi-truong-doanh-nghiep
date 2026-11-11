@@ -1,0 +1,103 @@
+/* Design tokens — bộ màu lấy từ HR Nexus (src/index.css) */
+:root {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4338ca;
+  --accent: #a855f7;
+  --deep: #311181;
+
+  --bg-pure: #ffffff;
+  --bg-light: #f8fafc;
+  --bg-muted: #f1f5f9;
+  --bg-dark: #0f172a;
+  --bg-gradient: linear-gradient(135deg, #312e81 0%, #4c1d95 50%, #1e3a8a 100%);
+  --bg-gradient-subtle: linear-gradient(135deg, #e0e7ff 0%, #f3e8ff 100%);
+
+  --text-main: #334155;
+  --text-heading: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #f8fafc;
+  --border: #e2e8f0;
+
+  --pkg-jobfair: #6366f1;
+  --pkg-workshop: #a855f7;
+  --pkg-livestream: #0ea5e9;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --header-h: 64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); }
+
+body {
+  margin: 0;
+  font-family: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-main);
+  background: var(--bg-pure);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 { color: var(--text-heading); line-height: 1.25; margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+button { font: inherit; }
+
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+
+.section { padding: 48px 0; }
+.section-light { background: var(--bg-light); }
+
+.section-header { text-align: center; max-width: 760px; margin: 0 auto 32px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.section-label {
+  display: inline-flex; align-items: center; gap: 6px; margin: 0;
+  padding: 6px 14px; border-radius: 9999px;
+  background: var(--bg-gradient-subtle); color: var(--primary-dark);
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.section-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.02em; }
+.section-subtitle { font-size: 1rem; color: var(--text-muted); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 24px; border-radius: 9999px; border: 0;
+  font-weight: 700; font-size: 1rem; cursor: pointer; text-decoration: none;
+  transition: var(--transition);
+}
+.btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: #fff; box-shadow: 0 6px 18px rgba(99, 102, 241, 0.35); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(99, 102, 241, 0.45); }
+.btn-light { background: #fff; color: var(--deep); box-shadow: var(--shadow-lg); }
+.btn-light:hover { transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--primary-dark); border: 2px solid var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #fff; }
+.btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+.btn:focus-visible, a:focus-visible, input:focus-visible, [role="tab"]:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 24px; }
+  .section { padding: 88px 0; }
+  .section-header { margin-bottom: 48px; }
+  .section-title { font-size: 2.25rem; }
+  .section-subtitle { font-size: 1.0625rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
